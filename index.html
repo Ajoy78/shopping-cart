@@ -80,59 +80,34 @@
       
    <script>
 
+
+      var y = 1219;
+      
       var plusbtn = document.getElementById("plusbtn");
 
       plusbtn.addEventListener("click",function(){
 
-         increaseObject("inputNumber");
-      //var countObject = document.getElementById("inputNumber").value;
-      //var objectNumber = parseFloat(countObject);
-      //var object = objectNumber + 1;
-      //document.getElementById("inputNumber").value = object ;
-
-         increaseObjectPrice("oldPrice");
-      //var oldPrice = document.getElementById("oldPrice").innerText ;
-      //var oldPriceNumber = parseFloat(oldPrice);
-      //var newPriceNumber = oldPriceNumber + 1219;
-      //document.getElementById("oldPrice").innerText = newPriceNumber;
-
-
+      increaseObject("inputNumber");
+      updateObjectPrice("oldPrice",y);
+      
 })
 
 
    var minusbtn = document.getElementById("minusbtn");
-
    minusbtn.addEventListener("click",function(){
 
-      //var countObject = document.getElementById("inputNumber").value;
-      //var objectNumber = parseFloat(countObject);
-      //var object = objectNumber - 1 ;
-      //document.getElementById("inputNumber").value = object;
+      
       decreaseObject("inputNumber");
-
-      decreasePrice("oldPrice");
-      //var oldPrice = document.getElementById("oldPrice").innerText ;
-      //var oldPriceNumber = parseFloat(oldPrice);
-      //var newPriceNumber = oldPriceNumber / 2;
-      //document.getElementById("oldPrice").innerText = newPriceNumber;
-
+      updateObjectPrice("oldPrice", -1*y);
+     
    })
 
+   var x = 59 ;
    var plusButton = document.getElementById("plusButton");
    plusButton.addEventListener("click",function(){
 
-      increaseObject("inputNumber2");
-      //var countObject2 = document.getElementById("inputNumber2").value;
-      //var countObject2Number = parseFloat(countObject2);
-      //var object = countObject2Number + 1;
-      //document.getElementById("inputNumber2").value = object;
-
-
-      //update(puranPriceNumber);
-      var puranPrice = document.getElementById("puranPrice").innerText ;
-      var puranPriceNumber = parseFloat(puranPrice);
-      var updatePrice = puranPriceNumber + 59 ;
-      document.getElementById("puranPrice").innerText = updatePrice ;
+      increaseObject("inputNumber2");  
+      update("puranPrice",x);
       
    })
 
@@ -140,26 +115,9 @@
    minusButton.addEventListener("click",function(){
 
       decreaseObject("inputNumber2");
-      //var decreaseObject = document.getElementById("inputNumber2").value;
-      //var decreaseObjectNumber = parseFloat(decreaseObject);
-      //var object = decreaseObjectNumber - 1;
-      //document.getElementById("inputNumber2").value = object;
+      update("puranPrice", -1*x);
 
-      var puranPrice = document.getElementById("puranPrice").innerText;
-      var puranPriceNumber = parseFloat(puranPrice);
-      var updatePrice = puranPriceNumber -59 ;
-      document.getElementById("puranPrice").innerText = updatePrice;
-      
    })
-
-
-  /* function update(id){
-      var puranPrice = document.getElementById(id).innerText ;
-      var puranPriceNumber = parseFloat(puranPrice);
-      var updatePrice = puranPriceNumber + 59 ;
-      document.getElementById(id).innerText = updatePrice ;
-   }*/
-
 
 
 
@@ -171,10 +129,10 @@
 
    }
 
-   function increaseObjectPrice(id){
+   function updateObjectPrice(id,y){
       var oldPrice = document.getElementById(id).innerText ;
       var oldPriceNumber = parseFloat(oldPrice);
-      var newPriceNumber = oldPriceNumber + 1219;
+      var newPriceNumber = oldPriceNumber + y;
       document.getElementById(id).innerText = newPriceNumber;
    }
 
@@ -186,16 +144,13 @@
       document.getElementById(id).value = object;
    }
 
-   function decreasePrice(id){
-      var oldPrice = document.getElementById(id).innerText ;
-      var oldPriceNumber = parseFloat(oldPrice);
-      var newPriceNumber = oldPriceNumber - 1219;
-      document.getElementById(id).innerText = newPriceNumber;
-      
+
+   function update(id,x){
+      var puranPrice = document.getElementById(id).innerText ;
+      var puranPriceNumber = parseFloat(puranPrice);
+      var updatePrice = puranPriceNumber + x ;
+      document.getElementById(id).innerText = updatePrice ;
    }
-
-
-
 
    </script>
 </body>
