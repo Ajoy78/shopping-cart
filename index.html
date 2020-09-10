@@ -25,11 +25,11 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="minusbtn" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="inputNumber" type="text" class="form-control text-center" value="1">
+                           <button id="plusbtn" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
-                        <h5>$1219</h5>
+                        <h5>$<span id="oldPrice">1219</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -77,6 +77,82 @@
          </div>
       </div>
    </section>
+      
+   <script>
+
+      var plusbtn = document.getElementById("plusbtn");
+
+      plusbtn.addEventListener("click",function(){
+
+         increaseObject("inputNumber");
+      //var countObject = document.getElementById("inputNumber").value;
+      //var objectNumber = parseFloat(countObject);
+      //var object = objectNumber + 1;
+      //document.getElementById("inputNumber").value = object ;
+
+         increaseObjectPrice("oldPrice");
+      //var oldPrice = document.getElementById("oldPrice").innerText ;
+      //var oldPriceNumber = parseFloat(oldPrice);
+      //var newPriceNumber = oldPriceNumber + 1219;
+      //document.getElementById("oldPrice").innerText = newPriceNumber;
+
+
+})
+
+
+   var minusbtn = document.getElementById("minusbtn");
+
+   minusbtn.addEventListener("click",function(){
+
+      //var countObject = document.getElementById("inputNumber").value;
+      //var objectNumber = parseFloat(countObject);
+      //var object = objectNumber - 1 ;
+      //document.getElementById("inputNumber").value = object;
+      decreaseObject("inputNumber");
+
+      decreasePrice("oldPrice");
+      //var oldPrice = document.getElementById("oldPrice").innerText ;
+      //var oldPriceNumber = parseFloat(oldPrice);
+      //var newPriceNumber = oldPriceNumber / 2;
+      //document.getElementById("oldPrice").innerText = newPriceNumber;
+
+   })
+
+   function increaseObject(id){
+      var countObject = document.getElementById("inputNumber").value;
+      var objectNumber = parseFloat(countObject);
+      var object = objectNumber + 1;
+      document.getElementById("inputNumber").value = object ;
+
+   }
+
+   function increaseObjectPrice(id){
+      var oldPrice = document.getElementById("oldPrice").innerText ;
+      var oldPriceNumber = parseFloat(oldPrice);
+      var newPriceNumber = oldPriceNumber + 1219;
+      document.getElementById("oldPrice").innerText = newPriceNumber;
+   }
+
+
+   function decreaseObject(id){
+      var countObject = document.getElementById(id).value;
+      var objectNumber = parseFloat(countObject);
+      var object = objectNumber - 1 ;
+      document.getElementById(id).value = object;
+   }
+
+   function decreasePrice(id){
+      var oldPrice = document.getElementById("oldPrice").innerText ;
+      var oldPriceNumber = parseFloat(oldPrice);
+      var newPriceNumber = oldPriceNumber - 1219;
+      document.getElementById("oldPrice").innerText = newPriceNumber;
+      
+   }
+
+
+
+
+   </script>
 </body>
 
 </html>
